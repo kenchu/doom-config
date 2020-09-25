@@ -11,10 +11,10 @@ Make this file run (slightly) faster with lexical binding (see this blog post fo
 
 ** Personal Information
 Some functionality uses this to identify you, e.g. GPG configuration, email clients, file templates and snippets.
-#+begin_src emacs-lisp :tangle yes
-(setq user-full-name "Ken Chu"
-      user-mail-address "chuwingyu@gmail.com")
-#+end_src
+#+BEGIN_SRC emacs-lisp
+(setq user-full-name "ken.chu"
+      user-mail-address "ken.chu@tfidm.com")
+#+END_SRC
 
 ** Better Defaults
 *** Misc Config
