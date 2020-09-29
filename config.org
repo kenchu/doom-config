@@ -90,6 +90,25 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 (setq projectile-project-search-path '("~/code" "~/code/tfi"))
 #+END_SRC
 
+** Workflow
+*** Windows
+I find it rather handy to be asked which buffer I want to see after splitting
+the window. Let's make that happen.
+First, we'll enter the new window
+#+BEGIN_SRC emacs-lisp
+(setq evil-vsplit-window-right t
+      evil-split-window-below t)
+#+END_SRC
+Then, we'll pull up ~ivy~
+#+BEGIN_SRC emacs-lisp
+(defadvice! prompt-for-buffer (&rest _)
+  :after '(evil-window-split evil-window-vsplit)
+  (+ivy/switch-buffer))
+#+END_SRC
+Oh, and previews are nice
+#+BEGIN_SRC emacs-lisp
+(setq +ivy-buffer-preview t)
+#+END_SRC
 ** Completeion
 #+BEGIN_SRC emacs-lisp
 (setq company-show-numbers t)
