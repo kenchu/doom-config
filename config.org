@@ -116,6 +116,12 @@ Oh, and previews are nice
 (setq company-show-numbers t)
 #+END_SRC
 
+** Counsel-Tramp
+#+BEGIN_SRC emacs-lisp
+(use-package counsel-tramp
+  :commands (counsel-tramp))
+#+END_SRC
+
 ** Hydra
 *** hydra-yasnippet
 #+BEGIN_SRC emacs-lisp
