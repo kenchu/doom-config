@@ -115,7 +115,11 @@ Oh, and previews are nice
 #+BEGIN_SRC emacs-lisp
 (setq company-show-numbers t)
 #+END_SRC
-
+** which-key
+Default = 1.0 sec
+#+begin_src emacs-lisp :tangle yes
+(setq which-key-idle-delay 0.5)
+#+end_src
 ** Counsel-Tramp
 #+BEGIN_SRC emacs-lisp
 (use-package counsel-tramp
