@@ -111,7 +111,7 @@ Oh, and previews are nice
 #+BEGIN_SRC emacs-lisp
 (setq +ivy-buffer-preview t)
 #+END_SRC
-** Completeion
+** Completion
 #+BEGIN_SRC emacs-lisp
 (setq company-show-numbers t)
 #+END_SRC
