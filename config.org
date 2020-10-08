@@ -4,20 +4,20 @@
 Place your private configuration here! Remember, you do not need to run 'doom sync' after modifying this file!
 
 ** lexical-binding
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-#+END_SRC
+#+end_src
 
 ** Personal Information
 Some functionality uses this to identify you, e.g. GPG configuration, email clients, file templates and snippets.
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Ken Chu"
       user-mail-address "chuwingyu@gmail.com")
-#+END_SRC
+#+end_src
 
 ** Better Defaults
 *** Misc Config
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
@@ -42,12 +42,11 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-#+END_SRC
+#+end_src
 
 ** UI
 *** Font and Theme
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -68,60 +67,54 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-dracula)
-#+END_SRC
+#+end_src
 
 *** Modeline
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 (display-time-mode 1)                             ; Enable time in the mode-line
 (unless (equal "Battery status not available"
                (battery))
   (display-battery-mode 1))                       ; On laptops it's nice to know how much power you have
-#+END_SRC
+#+end_src
 
 *** Fullscreen
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
-#+END_SRC
+#+end_src
 
-#+BEGIN_SRC emacs-lisp
+*** rainbow-mode
+#+begin_src emacs-lisp :tangle yes
 (add-hook! 'rainbow-mode-hook
   (hl-line-mode (if rainbow-mode -1 +1)))
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp
-(setq projectile-project-search-path '("~/code" "~/code/tfi"))
-#+END_SRC
+#+end_src
 
 ** Workflow
 *** Windows
 I find it rather handy to be asked which buffer I want to see after splitting
 the window. Let's make that happen.
 First, we'll enter the new window
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 (setq evil-vsplit-window-right t
       evil-split-window-below t)
-#+END_SRC
+#+end_src
 Then, we'll pull up ~ivy~
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 (defadvice! prompt-for-buffer (&rest _)
   :after '(evil-window-split evil-window-vsplit)
   (+ivy/switch-buffer))
-#+END_SRC
+#+end_src
 Oh, and previews are nice
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 (setq +ivy-buffer-preview t)
-#+END_SRC
-** Completion
-#+BEGIN_SRC emacs-lisp
-(setq company-show-numbers t)
-#+END_SRC
-** which-key
-Default = 1.0 sec
+#+end_src
+
+*** which-key
+Set display delay
 #+begin_src emacs-lisp :tangle yes
 (setq which-key-idle-delay 0.5)
 #+end_src
 
-Replace which-key prefix `evil-*` and `evilem-motion*` by symbols
+Replace which-key prefix `evil-*` and `evilem-motion-` by symbols
 #+begin_src emacs-lisp :tangle yes
 (setq which-key-allow-multiple-replacements t)
 (after! which-key
@@ -132,15 +125,21 @@ Replace which-key prefix `evil-*` and `evilem-motion*` by symbols
    ))
 #+end_src
 
-** Counsel-Tramp
-#+BEGIN_SRC emacs-lisp
+** Completion
+*** company-mode
+#+begin_src emacs-lisp :tangle yes
+(setq company-show-numbers t)
+#+end_src
+
+*** counsel-tramp
+#+begin_src emacs-lisp :tangle yes
 (use-package counsel-tramp
   :commands (counsel-tramp))
-#+END_SRC
+#+end_src
 
 ** Hydra
 *** hydra-yasnippet
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 (defhydra hydra-yasnippet (:color blue :hint nil)
   "
               ^YASnippets^
@@ -162,10 +161,10 @@ Replace which-key prefix `evil-*` and `evilem-motion*` by symbols
   ("g" yas/global-mode)
   ("m" yas/minor-mode)
   ("a" yas-reload-all))
-#+END_SRC
+#+end_src
 
 *** hydra-smartparens
-#+BEGIN_SRC elisp
+#+begin_src emacs-lisp :tangle yes
 (defhydra hydra-smartparens (:hint nil)
   "
  Moving^^^^                       Slurp & Barf^^   Wrapping^^            Sexp juggling^^^^               Destructive
@@ -217,10 +216,10 @@ Replace which-key prefix `evil-*` and `evilem-motion*` by symbols
 
   ("q" nil)
   ("g" nil))
-#+END_SRC
+#+end_src
 
 *** hydra-projectile
-#+BEGIN_SRC elisp
+#+begin_src emacs-lisp :tangle yes
 (defhydra hydra-projectile-other-window (:color teal)
   "projectile-other-window"
   ("f"  projectile-find-file-other-window        "file")
@@ -266,13 +265,13 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
   ("z"   projectile-cache-current-file)
   ("`"   hydra-projectile-other-window/body "other window")
   ("q"   nil "cancel" :color blue))
-#+END_SRC
+#+end_src
 
 *** hydra-git-gutter
-#+BEGIN_SRC elisp
+#+begin_src emacs-lisp :tangle yes
 (defhydra hydra-git-gutter (:body-pre (git-gutter-mode 1)
                             :hint nil)
-  "
+"
 Git gutter:
   _j_: next hunk        _s_tage hunk     _q_uit
   _k_: previous hunk    _r_evert hunk    _Q_uit and deactivate git-gutter
@@ -297,4 +296,10 @@ Git gutter:
               (sit-for 0.1)
               (git-gutter:clear))
        :color blue))
-#+END_SRC
+#+end_src
+
+*** Projectile
+Set projectile search path.
+#+begin_src emacs-lisp :tangle yes
+(setq projectile-project-search-path '("~/code"))
+#+end_src
