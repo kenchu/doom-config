@@ -129,6 +129,12 @@ Replace which-key prefix `evil-*` and `evilem-motion-` by symbols
    ))
 #+end_src
 
+*** Magit
+#+begin_src emacs-lisp :tangle yes
+(after! magit
+  (magit-delta-mode +1))
+#+end_src
+
 ** Completion
 *** company-mode
 #+begin_src emacs-lisp :tangle yes
@@ -307,3 +313,13 @@ Set projectile search path.
 #+begin_src emacs-lisp :tangle yes
 (setq projectile-project-search-path '("~/code"))
 #+end_src
+* Requirement
+** git-delta
+The Delta binary. It’s packaged for some distributions but I installed it with
+#+BEGIN_SRC sh :tangle no
+cargo install git-delta
+#+END_SRC
+Or on macOS,
+#+BEGIN_SRC sh :tangle no
+brew install git-delta
+#+END_SRC
