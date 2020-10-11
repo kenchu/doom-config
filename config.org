@@ -113,6 +113,10 @@ Set display delay
 #+begin_src emacs-lisp :tangle yes
 (setq which-key-idle-delay 0.5)
 #+end_src
+Refreshes quickly after which-key is triggered.
+#+begin_src emacs-lisp :tangle yes
+(setq which-key-idle-secondary-delay 0.05)
+#+end_src
 
 Replace which-key prefix `evil-*` and `evilem-motion-` by symbols
 #+begin_src emacs-lisp :tangle yes
