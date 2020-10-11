@@ -1,4 +1,20 @@
+#+TITLE: Doom Emacs Packages
+#+PROPERTY: header-args      :tangle "./packages.el"
+* Doom Emacs Packages
+** Heading
+#+begin_src emacs-lisp :tangle yes
 ;; -*- no-byte-compile: t; -*-
+#+end_src
+** magit-delta
+#+begin_src emacs-lisp :tangle yes
+(package! magit-delta)
+#+end_src
+** counsel-tramp
+#+begin_src emacs-lisp :tangle yes
+(package! counsel-tramp)
+#+end_src
+* Notes
+#+begin_src emacs-lisp :tangle no
 ;;; $DOOMDIR/packages.el
 
 ;; To install a package with Doom you must declare them here and run 'doom sync'
@@ -48,5 +64,4 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-
-(package! counsel-tramp)
+#+end_src
