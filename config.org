@@ -109,7 +109,8 @@ Oh, and previews are nice
 #+end_src
 
 *** which-key
-Set display delay
+Set the time delay (in seconds) for the which-key popup to appear. A value of
+zero might cause issues so a non-zero value is recommended.
 #+begin_src emacs-lisp :tangle yes
 (setq which-key-idle-delay 0.5)
 #+end_src
