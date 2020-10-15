@@ -70,11 +70,14 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 #+end_src
 
 *** Modeline
+Enable time in the mode-line.
 #+begin_src emacs-lisp :tangle yes
-(display-time-mode 1)                             ; Enable time in the mode-line
-(unless (equal "Battery status not available"
-               (battery))
-  (display-battery-mode 1))                       ; On laptops it's nice to know how much power you have
+(display-time-mode 1)
+#+end_src
+On laptops it's nice to know how much power you have.
+#+begin_src emacs-lisp :tangle yes
+(unless (equal "Battery status not available" (battery))
+  (display-battery-mode 1))
 #+end_src
 
 *** Fullscreen
