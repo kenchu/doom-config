@@ -1,5 +1,5 @@
 #+TITLE: Doom Emacs Packages
-#+PROPERTY: header-args      :tangle "./packages.el"
+#+PROPERTY: header-args      :tangle "packages.el"
 * Doom Emacs Packages
 ** Heading
 #+begin_src emacs-lisp :tangle yes
