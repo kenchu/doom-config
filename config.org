@@ -92,6 +92,10 @@ On laptops it's nice to know how much power you have.
   (hl-line-mode (if rainbow-mode -1 +1)))
 #+end_src
 
+#+begin_src emacs-lisp :tangle yes
+(setq projectile-project-search-path '("~/code" "~/code/drm" "~/code/chillgood"))
+#+end_src
+
 ** Workflow
 *** Windows
 I find it rather handy to be asked which buffer I want to see after splitting
