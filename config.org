@@ -104,7 +104,8 @@ Then, we'll pull up ~ivy~
 #+begin_src emacs-lisp :tangle yes
 (defadvice! prompt-for-buffer (&rest _)
   :after '(evil-window-split evil-window-vsplit)
-  (+ivy/switch-buffer))
+  ;; (+ivy/switch-buffer))
+  (+ivy/projectile-find-file))
 #+end_src
 Oh, and previews are nice
 #+begin_src emacs-lisp :tangle yes
