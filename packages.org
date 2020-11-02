@@ -13,6 +13,10 @@
 #+begin_src emacs-lisp :tangle yes
 (package! counsel-tramp)
 #+end_src
+** company-tabnine
+#+begin_src emacs-lisp :tangle yes
+(package! company-tabnine)
+#+end_src
 * Notes
 #+begin_src emacs-lisp :tangle no
 ;;; $DOOMDIR/packages.el

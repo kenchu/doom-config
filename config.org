@@ -146,6 +146,13 @@ Replace which-key prefix `evil-*` and `evilem-motion-` by symbols
 (setq company-show-numbers t)
 #+end_src
 
+*** company-tabnine
+Run ~M-x company-tabnine-install-binary~ to install the TabNine binary for your system.
+#+begin_src emacs-lisp :tangle yes
+(use-package company-tabnine
+  :config (add-to-list 'company-backends #'company-tabnine))
+#+end_src
+
 *** counsel-tramp
 #+begin_src emacs-lisp :tangle yes
 (use-package counsel-tramp
