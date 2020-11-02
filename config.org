@@ -4,6 +4,7 @@
 Place your private configuration here! Remember, you do not need to run 'doom sync' after modifying this file!
 
 ** lexical-binding
+Make this file run (slightly) faster with lexical binding (see this blog post for more info).
 #+begin_src emacs-lisp :tangle yes
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 #+end_src
