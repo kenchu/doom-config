@@ -19,10 +19,6 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 ** Better Defaults
 *** Misc Config
 #+begin_src emacs-lisp :tangle yes
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
@@ -43,6 +39,17 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+#+end_src
+** Org Mode
+If you use `org' and don't want your org files in the default location below,
+change `org-directory'. It must be set before org loads!
+#+begin_src emacs-lisp :tangle yes
+(setq org-directory "~/org/")
+#+end_src
+
+*** org-roam
+#+begin_src emacs-lisp :tangle yes
+(setq org-roam-directory "~/org/roam")
 #+end_src
 
 ** UI
